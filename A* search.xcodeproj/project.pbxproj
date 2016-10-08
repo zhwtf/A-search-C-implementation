@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		71D93F331DA858230019AFAD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71D93F321DA858230019AFAD /* main.cpp */; };
+		71D93F3A1DA858760019AFAD /* SearchNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71D93F391DA858760019AFAD /* SearchNode.cpp */; };
+		71D93F3E1DA85FA70019AFAD /* Astarsearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71D93F3C1DA85FA70019AFAD /* Astarsearch.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,11 @@
 /* Begin PBXFileReference section */
 		71D93F2F1DA858230019AFAD /* A* search */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "A* search"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D93F321DA858230019AFAD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		71D93F391DA858760019AFAD /* SearchNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SearchNode.cpp; sourceTree = "<group>"; };
+		71D93F3B1DA858B40019AFAD /* SearchNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchNode.h; sourceTree = "<group>"; };
+		71D93F3C1DA85FA70019AFAD /* Astarsearch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Astarsearch.cpp; sourceTree = "<group>"; };
+		71D93F3D1DA85FA70019AFAD /* Astarsearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Astarsearch.h; sourceTree = "<group>"; };
+		71D93F3F1DA861860019AFAD /* Vector2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,11 @@
 			isa = PBXGroup;
 			children = (
 				71D93F321DA858230019AFAD /* main.cpp */,
+				71D93F391DA858760019AFAD /* SearchNode.cpp */,
+				71D93F3B1DA858B40019AFAD /* SearchNode.h */,
+				71D93F3C1DA85FA70019AFAD /* Astarsearch.cpp */,
+				71D93F3D1DA85FA70019AFAD /* Astarsearch.h */,
+				71D93F3F1DA861860019AFAD /* Vector2.h */,
 			);
 			path = "A* search";
 			sourceTree = "<group>";
@@ -119,6 +131,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				71D93F331DA858230019AFAD /* main.cpp in Sources */,
+				71D93F3E1DA85FA70019AFAD /* Astarsearch.cpp in Sources */,
+				71D93F3A1DA858760019AFAD /* SearchNode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
