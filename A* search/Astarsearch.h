@@ -33,6 +33,10 @@ public:
         n_StartToGoal.clear();
     }
     
+    int size_StartToGoal();
+    
+    std::vector<Vector2*> get_StartToGoal();
+    
     bool n_initialized;
     bool n_foundGoal;
     

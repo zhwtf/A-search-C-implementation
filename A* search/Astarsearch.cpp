@@ -109,7 +109,11 @@ void PathSearch::PathOpened(int x, int y, int cost, SearchNode *parent){
     
     // test if the node's x and y coordinate make the block node
     // add block nodes to the CloseList, then return
-    
+    if (id == 97 || id == 115 || id == 133 || id == 151 || id == 169 || id == 244 || id == 245 || id == 246 || id == 247 || id == 248 || id == 249 || id == 231) {
+        SearchNode* blocknode = new SearchNode(x, y, parent);
+        n_CloseList.push_back(blocknode);
+        return;
+    }
     
     // else create a pointer pointing to the new node and set the G and H
     SearchNode* newChild = new SearchNode(x, y, parent);
@@ -184,10 +188,12 @@ void PathSearch::ContinuePath(){
             }
         }
     }
+    //recursively call the function until found the goal
+    ContinuePath();
 }
 
 Vector2 PathSearch::NextPathPosi(){
-    int index = 1;
+    int index = 2;
     
     Vector2 nextPos;
     nextPos.x = n_StartToGoal[n_StartToGoal.size() - index]->x;
@@ -198,6 +204,14 @@ Vector2 PathSearch::NextPathPosi(){
 }
 
 
+int PathSearch::size_StartToGoal()
+{
+    int size = n_StartToGoal.size();
+    return size;
+    
+}
 
-
+std::vector<Vector2*> PathSearch::get_StartToGoal(){
+    return n_StartToGoal;
+}
 
