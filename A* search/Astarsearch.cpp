@@ -17,23 +17,7 @@ PathSearch::PathSearch(){
 // destructor?
 
 void PathSearch::SearchPath(Vector2 currentPosi, Vector2 targetPosi){
-    // if not initialized, then delete all the elements in the lists
-    
-    if(!n_initialized){
-        for (int i = 0; i < n_OpenList.size(); i++) {
-            delete n_OpenList[i];
-        }
-        n_OpenList.clear();
-        
-        for (int i = 0; i < n_CloseList.size(); i++) {
-            delete n_CloseList[i];
-        }
-        n_CloseList.clear();
-        
-        for (int i = 0; n_StartToGoal.size(); i++) {
-            delete n_StartToGoal[i];
-        }
-        n_StartToGoal.clear();
+
         
         // Initialize start
         SearchNode start;
@@ -48,7 +32,6 @@ void PathSearch::SearchPath(Vector2 currentPosi, Vector2 targetPosi){
         // set the start and goal node
         SetStartAndGoal(start, goal);
         n_initialized = true;
-    }
     
     // if has initialized, we continue our path search
     if(n_initialized){
@@ -59,7 +42,7 @@ void PathSearch::SearchPath(Vector2 currentPosi, Vector2 targetPosi){
 void PathSearch::SetStartAndGoal(SearchNode start, SearchNode goal)
 {
     n_startNode = new SearchNode(start.n_xcoord, start.n_ycoord, NULL);
-    n_goalNode = new SearchNode(goal.n_xcoord, goal.n_ycoord, &goal);//parent of goal node??? goal->parent???
+    n_goalNode = new SearchNode(goal.n_xcoord, goal.n_ycoord, &goal);
     
     // set G and H of the start node
     n_startNode->G = 0;
@@ -95,11 +78,6 @@ SearchNode* PathSearch::GetNextNode(){
     return NextNode;
 }
 void PathSearch::PathOpened(int x, int y, int cost, SearchNode *parent){
-    /*if (node_blocked){
-     return;}
-     */
-    
-    
     int id = y * map_size + x;
     // if the node is in the closelist, then we just return
     for (int i = 0; i < n_CloseList.size(); i++) {

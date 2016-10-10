@@ -19,20 +19,6 @@ public:
     
     void SearchPath(Vector2 currentPosi, Vector2 targetPosi);
     
-    
-    
-    // create three clear function
-    // there are 3 vectors to hold the nodes
-    void clearOpenList(){
-        n_OpenList.clear();
-    }
-    void clearCloseList(){
-        n_CloseList.clear();
-    }
-    void clearStartToGoal(){
-        n_StartToGoal.clear();
-    }
-    
     int size_StartToGoal();
     
     std::vector<Vector2*> get_StartToGoal();

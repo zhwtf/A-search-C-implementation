@@ -162,21 +162,13 @@ int main() {
     map[12][12] = "b";
     map[5][5] = "c";
     map[5][12] = "d";
-    
-    //output the map
-    for (int n=17; n>=0; n--) {
-        for (int m=0; m<18; m++) {
-            cout<<map[n][m]<<"   ";
-        }
-        cout<<endl;
-    }
 
     PathSearch second;
     Vector2 start2(start_x, start_y, 0);
     Vector2 goal2(goal_x, goal_y, 0);
     second.SearchPath(start2, goal2);
     int origin_frontier = second.get_frontier();
-    cout << "The frontiers from the original method: "<< origin_frontier << endl;
+    //cout << "The frontiers from the original method: "<< origin_frontier << endl;
     // create the vector2 for the 4 points
     Vector2 a_point(5, 12, 0);
     Vector2 b_point(12, 12, 0);
@@ -334,9 +326,9 @@ int main() {
             }
             cout<<endl;
         }
-        cout << "The length of the shortest path are: " << size_start_mark + size_goal_mark - 2 + size4 -1 << endl;
+        cout << "\nThe length of the shortest path are: " << size_start_mark + size_goal_mark - 2 + size4 -1 << endl;
         
-        cout << "The passed nodes are: " << endl;
+        cout << "\nThe passed nodes are: " << endl;
         
         for (int i= size_start_mark - 1; i >= 0; i--) {
             cout << "(" << array1[index2].get_StartToGoal()[i]->x << ", " << array1[index2].get_StartToGoal()[i]->y << ") ";
@@ -350,7 +342,7 @@ int main() {
             cout << "(" << array2[index3].get_StartToGoal()[j]->x << ", " << array2[index3].get_StartToGoal()[j]->y << ") ";
         }
         
-        cout << "\nThe frontiers from the second method: ";
+        cout << "\n\nThe frontiers from the second method: ";
         
         int all = goal_frontier + start_frontier;
         cout << all << endl;
@@ -380,18 +372,21 @@ int main() {
             }
             cout<<endl;
         }
+        
         // output the length of the shortest path
         cout << "\nThe length of the shortest path are: " << size5-1 << endl;
         
-        cout << "The passed nodes are: " << endl;
+        cout << "\nThe passed nodes are: " << endl;
         
         for (int i = size5-1; i >= 0; i--) {
             cout << "(" << second.get_StartToGoal()[i]->x << ", " << second.get_StartToGoal()[i]->y << ") ";
         }
         
-        cout << "\nThe frontiers from the original method: "<< origin_frontier << endl;
+        cout << "\n\nThe frontiers from the original method: "<< origin_frontier << endl;
         
     }
     return 0;
+
+
 
 }

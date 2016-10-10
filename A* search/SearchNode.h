@@ -36,7 +36,7 @@ public:
         return G+H;
     }
     
-    // get the H cost(use Manharttan distance )
+    // get the H cost(use Manhattan distance )
     int GetH(SearchNode *targetnode){
         int x = std::abs(this->n_xcoord - targetnode->n_xcoord);
         int y = std::abs(this->n_ycoord - targetnode->n_ycoord);
