@@ -19,7 +19,7 @@ public:
     
     void SearchPath(Vector2 currentPosi, Vector2 targetPosi);
     
-    Vector2 NextPathPosi(); // get the first position from the list
+    
     
     // create three clear function
     // there are 3 vectors to hold the nodes
@@ -36,6 +36,7 @@ public:
     int size_StartToGoal();
     
     std::vector<Vector2*> get_StartToGoal();
+    int get_frontier();
     
     bool n_initialized;
     bool n_foundGoal;

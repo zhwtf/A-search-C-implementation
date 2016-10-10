@@ -5,9 +5,9 @@
 //  Created by 郑昊 on 2016-10-07.
 //  Copyright © 2016 haozheng. All rights reserved.
 //
-
+#include <iostream>
 #include "Astarsearch.h"
-
+using namespace std;
 
 PathSearch::PathSearch(){
     n_initialized = false;
@@ -78,6 +78,7 @@ SearchNode* PathSearch::GetNextNode(){
     SearchNode* NextNode = NULL;
     
     // find the node with smallest F
+    
     for (int i = 0; i < n_OpenList.size(); i++) {
         if (n_OpenList[i]->GetF() < bestF) {
             bestF = n_OpenList[i]->GetF();
@@ -107,11 +108,16 @@ void PathSearch::PathOpened(int x, int y, int cost, SearchNode *parent){
         }
     }
     
+    // test if the node is out of the boundary
+    if (x > 17 || x < 0 || y > 17 || y < 0) {
+        return;
+    }
+    
     // test if the node's x and y coordinate make the block node
     // add block nodes to the CloseList, then return
     if (id == 97 || id == 115 || id == 133 || id == 151 || id == 169 || id == 244 || id == 245 || id == 246 || id == 247 || id == 248 || id == 249 || id == 231) {
-        SearchNode* blocknode = new SearchNode(x, y, parent);
-        n_CloseList.push_back(blocknode);
+        //SearchNode* blocknode = new SearchNode(x, y, parent);
+        //n_CloseList.push_back(blocknode);
         return;
     }
     
@@ -172,11 +178,11 @@ void PathSearch::ContinuePath(){
         // rightnode
         PathOpened(currentNode->n_xcoord + 1, currentNode->n_ycoord, currentNode->G + 10, currentNode);
         
-        // leftnode
-        PathOpened(currentNode->n_xcoord - 1, currentNode->n_ycoord, currentNode->G + 10, currentNode);
-        
         // uppernode
         PathOpened(currentNode->n_xcoord, currentNode->n_ycoord + 1, currentNode->G + 10, currentNode);
+        
+        // leftnode
+        PathOpened(currentNode->n_xcoord - 1, currentNode->n_ycoord, currentNode->G + 10, currentNode);
         
         // downnode
         PathOpened(currentNode->n_xcoord, currentNode->n_ycoord - 1, currentNode->G + 10, currentNode);
@@ -192,16 +198,6 @@ void PathSearch::ContinuePath(){
     ContinuePath();
 }
 
-Vector2 PathSearch::NextPathPosi(){
-    int index = 2;
-    
-    Vector2 nextPos;
-    nextPos.x = n_StartToGoal[n_StartToGoal.size() - index]->x;
-    nextPos.y = n_StartToGoal[n_StartToGoal.size() - index]->y;
-    
-    
-    return nextPos;
-}
 
 
 int PathSearch::size_StartToGoal()
@@ -215,3 +211,8 @@ std::vector<Vector2*> PathSearch::get_StartToGoal(){
     return n_StartToGoal;
 }
 
+// get the total numbers of the expanded nodes
+int PathSearch::get_frontier(){
+    int num = n_OpenList.size() + n_CloseList.size();
+    return num;
+}
