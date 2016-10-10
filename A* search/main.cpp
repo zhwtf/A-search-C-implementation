@@ -58,7 +58,7 @@ int main() {
     }
     
     //hard code the block node
-    //9 means the node is a block
+    //- means the node is a block
     map[5][7] = "|";
     map[6][7] = "|";
     map[7][7] = "|";
@@ -280,6 +280,10 @@ int main() {
     //set 2 arrays to hold 4 landmarks
     Vector2 array_marks[] = {a_point, b_point, c_point, d_point};
     
+    // get the size of the target paths
+    int size_start_mark = array1[index2].size_StartToGoal();
+    int size_goal_mark = array2[index3].size_StartToGoal();
+    
     if ((goal_frontier + start_frontier) <= origin_frontier) {
         //this means using landmark is more efficient
         //we choose to use the landmark
@@ -323,8 +327,32 @@ int main() {
             map[y4][x4] = "*";
             
         }
-    cout << "\nThe frontiers from the second method: ";
-        int all = array1[index2].get_frontier() + array2[index3].get_frontier();
+        //output the map
+        for (int n=17; n>=0; n--) {
+            for (int m=0; m<18; m++) {
+                cout<<map[n][m]<<"   ";
+            }
+            cout<<endl;
+        }
+        cout << "The length of the shortest path are: " << size_start_mark + size_goal_mark - 2 + size4 -1 << endl;
+        
+        cout << "The passed nodes are: " << endl;
+        
+        for (int i= size_start_mark - 1; i >= 0; i--) {
+            cout << "(" << array1[index2].get_StartToGoal()[i]->x << ", " << array1[index2].get_StartToGoal()[i]->y << ") ";
+        }
+        
+        for (int z=size4-2; z>0; z--) {
+            cout << "(" << landmarks.get_StartToGoal()[z]->x << ", " << landmarks.get_StartToGoal()[z]->y << ") ";
+        }
+        
+        for (int j= 0; j < size_goal_mark; j++) {
+            cout << "(" << array2[index3].get_StartToGoal()[j]->x << ", " << array2[index3].get_StartToGoal()[j]->y << ") ";
+        }
+        
+        cout << "\nThe frontiers from the second method: ";
+        
+        int all = goal_frontier + start_frontier;
         cout << all << endl;
 
         
@@ -344,23 +372,26 @@ int main() {
             map[y5][x5] = "*";
             
         }
-     cout << "The frontiers from the original method: "<< origin_frontier << endl;
-    }
-
-
-    //output the map
-    for (int n=17; n>=0; n--) {
-        for (int m=0; m<18; m++) {
-            cout<<map[n][m]<<"   ";
+        
+        //output the map
+        for (int n=17; n>=0; n--) {
+            for (int m=0; m<18; m++) {
+                cout<<map[n][m]<<"   ";
+            }
+            cout<<endl;
         }
-        cout<<endl;
+        // output the length of the shortest path
+        cout << "\nThe length of the shortest path are: " << size5-1 << endl;
+        
+        cout << "The passed nodes are: " << endl;
+        
+        for (int i = size5-1; i >= 0; i--) {
+            cout << "(" << second.get_StartToGoal()[i]->x << ", " << second.get_StartToGoal()[i]->y << ") ";
+        }
+        
+        cout << "\nThe frontiers from the original method: "<< origin_frontier << endl;
+        
     }
-    
-    cout << "\nThe frontiers from the second method: " << goal_frontier + start_frontier << endl;
-
-    
     return 0;
-
-
 
 }
