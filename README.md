@@ -7,7 +7,7 @@
 #### Manhatten method: H(n) = abs(start cell's x coordinate - goal cell's x coordinate) + abs(start cell's y coordinate - goal cell's y coordinate) This means that the cell can only expand in the vertical line and horizontal line. 
 ######       * 
 ######    *  A  * 
-######       *      A is the cell that I want to expand and '*' is the only way that it can expand .
+######        *      A is the cell that I want to expand and '*' is the only way that it can expand .
 
 
 
